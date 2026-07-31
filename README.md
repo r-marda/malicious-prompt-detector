@@ -19,6 +19,7 @@ This repository contains:
 | `unsloth_finetuning.ipynb` | Notebook used to fine-tune Gemma and Qwen models using Unsloth and evaluate their performance. |
 | `traditional_ml_baseline.ipynb` | Traditional machine learning baseline using engineered NLP features (TF-IDF, linguistic features, etc.). |
 | `prompt-injection-detector-classify.py` | Interactive local inference script that classifies prompts using the fine-tuned Gemma or Qwen models. |
+| `prompt-injection-detector-reason.py` | Interactive local inference script that classifies prompts and provides a justification using the fine-tuned Gemma model. |
 | `final_dataset.csv` | Dataset used for model training. |
 | `unseen_test_dataset.csv` | Held-out unseen evaluation dataset. |
 | `requirements.txt` | Python dependencies required to run the notebooks and inference script. |
@@ -31,7 +32,7 @@ Two lightweight language models are included:
 
 | Model | Base Model | Purpose |
 |------|------------|---------|
-| Gemma | Google Gemma 3 270M | Binary prompt classification |
+| Gemma | Google Gemma 3 270M | Binary prompt classification and reasoning |
 | Qwen | Qwen 3 0.6B | Binary prompt classification |
 
 Both models were fine-tuned using **LoRA** with **Unsloth**.
@@ -45,9 +46,14 @@ Run
 ```bash
 python prompt-injection-detector-classify.py
 ```
+or
+```bash
+python prompt-injection-detector-reason.py
+```
 
 Choose a model:
 
+Choice of model is only available for classification. Reasoning is only on Gemma.
 ```
 Choose a model (G for Gemma, Q for Qwen):
 ```
@@ -65,6 +71,11 @@ Example output:
 Prediction:
 Malicious
 ```
+or
+```
+Label      : Malicious
+Reasoning  : Direct instruction override attempts to bypass system safety filters.
+```
 
 ---
 
@@ -78,6 +89,9 @@ https://huggingface.co/rmarda/prompt-injection-detector-local-inference-gemma
 
 https://huggingface.co/rmarda/prompt-injection-detector-local-inference-qwen
 
+### Gemma - Reasoning
+
+https://huggingface.co/rmarda/prompt-injection-detector-local-inference-gemma-reasoning
 ---
 
 ## Installation
@@ -129,6 +143,7 @@ The workflow consists of:
 2. Training traditional machine learning classifiers as baselines.
 3. Fine-tuning Gemma and Qwen using LoRA with Unsloth.
 4. Comparing model performance on unseen prompts.
+5. Incorporating a justification for classification.
 
 ---
 
