@@ -17,6 +17,7 @@ This repository contains:
 | File | Description |
 |------|-------------|
 | `unsloth_finetuning.ipynb` | Notebook used to fine-tune Gemma and Qwen models using Unsloth and evaluate their performance. |
+| `unsloth_finetuning_with_reasoning.ipynb` | Notebook used to fine-tune the Gemma model to provide reasoning and evaluate using GEval metrics (LLM-as-a-judge). |
 | `traditional_ml_baseline.ipynb` | Traditional machine learning baseline using engineered NLP features (TF-IDF, linguistic features, etc.). |
 | `prompt-injection-detector-classify.py` | Interactive local inference script that classifies prompts using the fine-tuned Gemma or Qwen models. |
 | `prompt-injection-detector-reason.py` | Interactive local inference script that classifies prompts and provides a justification using the fine-tuned Gemma model. |
