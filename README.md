@@ -90,9 +90,10 @@ https://huggingface.co/rmarda/prompt-injection-detector-local-inference-gemma
 
 https://huggingface.co/rmarda/prompt-injection-detector-local-inference-qwen
 
-### Gemma - Reasoning
+### Gemma (Reasoning)
 
 https://huggingface.co/rmarda/prompt-injection-detector-local-inference-gemma-reasoning
+
 ---
 
 ## Installation
