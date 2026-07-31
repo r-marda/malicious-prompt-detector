@@ -2,6 +2,7 @@ import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 from peft import PeftModel
 import warnings
+import json
 
 warnings.simplefilter("ignore")
 
@@ -69,6 +70,17 @@ Answer:
         skip_special_tokens=True,
     ).strip()
 
-    print("\nPrediction:")
-    print(prediction)
-    print("-" * 60)
+    try:
+        obj = json.loads(prediction)
+
+        print("\nPrediction")
+        print("-" * 60)
+        print(f"Label      : {obj['label']}")
+        print(f"Reasoning  : {obj['reasoning']}")
+        print("-" * 60)
+
+    except json.JSONDecodeError:
+        print("\nPrediction")
+        print("-" * 60)
+        print(prediction)
+        print("-" * 60)
